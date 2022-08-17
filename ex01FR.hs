@@ -1,9 +1,9 @@
 
-fatorial :: (Ord p, Num p) => p -> p
+fatorial :: Int -> Maybe Int
+fatorial 0 = 1 Just 1
+fatorial 1 = 1 Just 1
 fatorial n
-    | n <= 0 = 1
-    | otherwise = n * fatorial (n-1)
-
-main :: IO ()
-main = do
-    print $ show (fatorial 6)
+    |n < 0 = error  Nothing "Não existe fatorial negativo."
+    |otherwise = Just(n * fatorial (n-1))
+    
+ 
